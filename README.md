@@ -1,5 +1,7 @@
 # Chat Stew
-A pluggable parsing library for chat logs. It handles Adium out of the box.
+Chat Stew parses Adium logs and serves them up to you in an easy-to-use format.
+It allows you to plug in your own parser. See below for more details on writing
+your own parser.
 
 ## Usage
 
