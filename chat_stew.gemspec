@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Gabe Berke-Williams"]
   s.email       = ["gabe@thoughtbot.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{An Adium log parser with an easy interface. Supports custom parsers too.}
+  s.description = s.summary
 
   s.rubyforge_project = "chat_stew"
 
