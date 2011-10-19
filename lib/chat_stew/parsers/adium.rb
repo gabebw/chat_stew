@@ -17,7 +17,10 @@ module ChatStew
       def parse(file)
         doc = Nokogiri.XML(file)
         doc.search('chat message').map do |message|
-          Struct::Message.new(message[:sender], message[:alias], message.text, DateTime.parse(message[:time]))
+          Struct::Message.new(message[:sender],
+                              message[:alias],
+                              message.text,
+                              DateTime.parse(message[:time]))
         end
       end
     end

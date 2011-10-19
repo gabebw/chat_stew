@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe ChatStew, '.register' do
+describe ChatStew, ".register" do
   let(:parser) { stub("Parser", :can_parse? => true, :parse => []) }
   let(:log)    { stub("Chat Log", :read => "asdf") }
 
@@ -14,7 +14,7 @@ describe ChatStew, '.register' do
   end
 end
 
-describe ChatStew, '.parse' do
+describe ChatStew, ".parse" do
   let(:parser_one)     { stub("Parser", :can_parse? => true, :parse => ['one']) }
   let(:parser_two)     { stub("Parser", :can_parse? => true, :parse => ['two']) }
   let(:invalid_parser) { stub("Parser", :can_parse? => false, :parse => ['two']) }
@@ -45,7 +45,7 @@ describe ChatStew, '.parse' do
   end
 end
 
-describe ChatStew, '.clear_parsers!' do
+describe ChatStew, ".clear_parsers!" do
   let(:parser) { stub("Parser", :can_parse? => true, :parse => ['one']) }
   let(:log)    { stub("Adium Log", :read => "asdf") }
 
