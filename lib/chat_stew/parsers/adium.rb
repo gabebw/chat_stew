@@ -19,11 +19,11 @@ module ChatStew
         other_account = chat_messages.detect{|m| m[:sender] != account }[:sender]
 
         chat_messages.map do |message|
-          Struct::Message.new(message[:sender],
-                              message[:sender] == account ? other_account : account,
-                              message[:alias],
-                              message.text,
-                              DateTime.parse(message[:time]))
+          AdiumMessage.new(message[:sender],
+                           message[:sender] == account ? other_account : account,
+                           message[:alias],
+                           message.text,
+                           DateTime.parse(message[:time]))
         end
       end
     end

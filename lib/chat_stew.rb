@@ -1,5 +1,5 @@
 require "chat_stew/version"
-require "chat_stew/message"
+require "chat_stew/adium_message"
 require "chat_stew/parsers/adium"
 
 module ChatStew
