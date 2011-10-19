@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe ChatStew::Parsers::Adium, "#can_parse?" do
-  let(:adium_log)  { File.new(File.join('spec', 'support', 'logs', 'adium_log.xml')) }
-  let(:random_log) { File.new(File.join('spec', 'support', 'logs', 'random_log.html')) }
+  let(:adium_log)  { File.join('spec', 'support', 'logs', 'adium_log.xml') }
+  let(:random_log) { File.join('spec', 'support', 'logs', 'random_log.html') }
 
   it "returns true for an Adium log" do
     subject.can_parse?(adium_log).should be_true
