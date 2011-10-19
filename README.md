@@ -18,7 +18,8 @@ A pluggable parsing library for chat logs. It handles Adium out of the box.
 A parser is anything that conforms to this specification:
 
 * responds to #can_parse?(file) and returns truish or falsish
-* responds to #parse(file) and returns a ChatStew::ChatLog instance
+* responds to #parse(file) and returns an Enumerable containing AdiumMessage
+  instances
 
 If two parsers are registered that can both parse a given file, the
 most-recently-registered parser will win. I.E. if you register FooParser and
@@ -32,7 +33,7 @@ BarParser will be used to parse it since it was registered after FooParser.
 
       def parse(file)
         # Just return an empty log
-        ChatStew::ChatLog.new
+        []
       end
     end
 
