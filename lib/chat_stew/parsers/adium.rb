@@ -2,8 +2,6 @@ require 'nokogiri'
 require 'date'
 require 'time'
 
-Struct.new("Message", :sender, :receiver, :alias, :message, :time)
-
 module ChatStew
   module Parsers
     class Adium
