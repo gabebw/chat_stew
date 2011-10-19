@@ -7,12 +7,14 @@ module ChatStew
     parsers.unshift(parser)
   end
 
-  def self.parse(file)
-    valid_parser = parsers.detect {|parser| parser.can_parse?(file) }
+  def self.parse(input)
+    input = StringIO.new(input) unless input.respond_to?(:read)
+
+    valid_parser = parsers.detect {|parser| parser.can_parse?(input) }
     if valid_parser.nil?
       nil
     else
-      valid_parser.parse(file)
+      valid_parser.parse(input)
     end
   end
 

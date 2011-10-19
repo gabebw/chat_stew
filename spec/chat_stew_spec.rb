@@ -43,6 +43,23 @@ describe ChatStew, ".parse" do
   it "returns nil if no parser is available" do
     ChatStew.parse(log).should be_nil
   end
+
+  context "input" do
+    let(:adium_log_path) { File.join('spec', 'support', 'logs', 'adium_log.xml') }
+    let(:mock_parser)    { MockParser.new }
+    before { ChatStew.register(mock_parser) }
+
+    it "accepts a String" do
+      ChatStew.parse(adium_log_path)
+      mock_parser.should have_parsed
+      mock_parser.input.should respond_to(:read)
+    end
+
+    it "accepts a File" do
+      ChatStew.parse(File.new(adium_log_path))
+      mock_parser.input.should respond_to(:read)
+    end
+  end
 end
 
 describe ChatStew, ".clear_parsers!" do
