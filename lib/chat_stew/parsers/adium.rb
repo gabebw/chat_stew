@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'date'
 require 'time'
 
-Struct.new("Message", :sender, :alias, :message, :time)
+Struct.new("Message", :sender, :receiver, :alias, :message, :time)
 
 module ChatStew
   module Parsers
@@ -16,8 +16,13 @@ module ChatStew
 
       def parse(file)
         doc = Nokogiri.XML(file)
-        doc.search('chat message').map do |message|
+        chat_messages = doc.search('chat message')
+        account       = doc.at('chat')[:account]
+        other_account = chat_messages.detect{|m| m[:sender] != account }[:sender]
+
+        chat_messages.map do |message|
           Struct::Message.new(message[:sender],
+                              message[:sender] == account ? other_account : account,
                               message[:alias],
                               message.text,
                               DateTime.parse(message[:time]))

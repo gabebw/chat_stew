@@ -22,6 +22,11 @@ describe ChatStew::Parsers::Adium, "#parse" do
     parsed[1].sender.should == "this_is_them"
   end
 
+  it "correctly parses the receiver" do
+    parsed[0].receiver.should == "this_is_them"
+    parsed[1].receiver.should == "this_is_me"
+  end
+
   it "correctly parses the alias" do
     parsed[0].alias.should == "my_alias"
     parsed[1].alias.should == "their_alias"
