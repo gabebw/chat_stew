@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<chat xmlns="http://purl.org/net/ulf/ns/0.4-02" account="my_account" service="AIM">
+<chat xmlns="http://purl.org/net/ulf/ns/0.4-02" account="this_is_me" service="AIM">
   <message sender="this_is_me" time="2009-01-10T10:14:28-05:00" alias="my_alias"><div><span style="font-family: Helvetica; font-size: 12pt;">first message &gt; second message</span></div></message>
   <message sender="this_is_them" time="2009-01-10T20:15:30-05:00" alias="their_alias"><div><span style="font-family: Helvetica; font-size: 12pt;">untrue! &amp; I can prove it</span></div></message>
 </chat>
