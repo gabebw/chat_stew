@@ -1,4 +1,5 @@
 # Chat Stew
+
 Chat Stew parses Adium logs and serves them up to you in an easy-to-use format.
 It allows you to plug in your own parser. See below for more details on writing
 your own parser.
@@ -19,14 +20,15 @@ your own parser.
 ## Writing your own parser
 A parser is anything that conforms to this specification:
 
-* responds to #can_parse?(file) and returns truish or falsish
-* responds to #parse(file) and returns an Enumerable containing
-  ChatStew::AdiumMessage instances
+* responds to `#can_parse?(file)` and returns truish or falsish
+* responds to `#parse(file)` and returns an Enumerable containing
+  `ChatStew::AdiumMessage` instances
 
 If two parsers are registered that can both parse a given file, the
-most-recently-registered parser will win. I.E. if you register FooParser and
-then register BarParser, and they can both parse a file called "foo.bar", then
-BarParser will be used to parse it since it was registered after FooParser.
+most-recently-registered parser will win. For example: let's say both FooParser
+and BarParser can parse a file named "foo.bar". You register FooParser and then
+register BarParser. `ChatStew.parse("foo.bar")` will use BarParser since it was
+registered after FooParser.
 
     class FooParser
       def can_parse?(file)
@@ -46,4 +48,5 @@ BarParser will be used to parse it since it was registered after FooParser.
     parse_result = ChatStew.parse("whatever.foo")
 
 ## Author
+
 Gabe Berke-Williams, 2011
